@@ -74,47 +74,30 @@ function draw() {
 
     for (var i in xotaker) {
         xotaker[i].sharjvel();
-    }
-    for (var i in xotaker) {
         xotaker[i].utel();
         for (var c in grassArr) {
             if (grassArr[c].x == xotaker[i].x && grassArr[c].y == xotaker[i].y) {
                 grassArr.splice(c, 1);
             }
         }
-    }
-    for (var i in xotaker) {
         xotaker[i].bazmanal();
-    }
-    for (var i in xotaker) {
         xotaker[i].mahanal();
     }
 
     for (var i in monster) {
         monster[i].sharjvel();
-    }
-
-    for (var i in monster) {
         monster[i].utel();
         for (var c in xotaker) {
             if (xotaker[c].x == monster[i].x && xotaker[c].y == monster[i].y) {
                 xotaker.splice(c, 1);
             }
         }
-    }
-    for (var i in monster) {
         monster[i].bazmanal();
-    }
-    for (var i in monster) {
         monster[i].mahanal()
     }
     for (var i in lion) {
         lion[i].sharjvel();
-    }
-    for (var i in lion) {
         lion[i].bazmanal();
-    }
-    for (var i in lion) {
         lion[i].utel();
         for (var c in monster) {
             if (monster[c].x == lion[i].x && monster[c].y == lion[i].y) {
@@ -123,3 +106,4 @@ function draw() {
         }
     }
 }
+
