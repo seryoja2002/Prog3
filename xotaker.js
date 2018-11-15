@@ -1,13 +1,7 @@
-class Monster extends Base {
-    constructor(x, y) {
-        super(x, y);
-        this.energy = 20;
-        this.multiply = 10;
-        this.index = 3;
-    }
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        super.yntrelVandak(ch);
+class Xotaker extends Kendanieak {
+    constructor(x, y, index) {
+        super(x, y, index);
+        this.tariq = 0;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -21,25 +15,29 @@ class Monster extends Base {
             [this.x + 1, this.y + 1]
         ];
     }
+    yntrelVandak(ch) {
+        this.stanalNorKordinatner();
+        return super.yntrelVandak(ch);
+    }
     sharjvel() {
         this.stanalNorKordinatner();
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
-            matrix[norVandak[1]][norVandak[0]] = 3;
+            matrix[norVandak[1]][norVandak[0]] = 2;
             this.x = norVandak[0];
             this.y = norVandak[1];
             this.energy--;
         }
     }
     bazmanal() {
-        if (this.energy == 1) {
+        if (this.energy == 8) {
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-                var norMonster = new Monster(norVandak[0], norVandak[1]);
-                monster.push(norMonster);
-                matrix[norVandak[1]][norVandak[0]] = 3;
+                var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
+                xotaker.push(norXotaker);
+                matrix[norVandak[1]][norVandak[0]] = 2;
                 this.energy--;
                 this.multiply = 0;
             }
@@ -47,11 +45,11 @@ class Monster extends Base {
     }
     utel() {
         this.stanalNorKordinatner();
-        var datarkVandakner = this.yntrelVandak(2);
+        var datarkVandakner = this.yntrelVandak(1);
         var norVandak = random(datarkVandakner);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
-            matrix[norVandak[1]][norVandak[0]] = 3;
+            matrix[norVandak[1]][norVandak[0]] = 2;
             this.x = norVandak[0];
             this.y = norVandak[1];
             this.energy++;
@@ -63,11 +61,13 @@ class Monster extends Base {
     mahanal() {
         if (this.energy < 0) {
             matrix[this.y][this.x] = 0;
-            for (var c in monster) {
-                if (monster[c].x == this.x && monster[c].y == this.y) {
-                    monster.splice(c, 1);
+            for (var c in xotaker) {
+                if (xotaker[c].x == this.x && xotaker[c].y == this.y) {
+                    xotaker.splice(c, 1);
                 }
             }
         }
     }
 }
+
+

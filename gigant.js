@@ -1,13 +1,7 @@
-class Lion extends Base {
-    constructor(x, y) {
-        super(x, y);
-        this.energy = 8;
-        this.multiply = 10;
-        this.index = 4;
-    }
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        super.yntrelVandak(ch);
+class Gigant extends Kendanieak {
+        constructor(x, y, index) {
+        super(x, y, index);
+        this.tariq = 0;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -21,9 +15,14 @@ class Lion extends Base {
             [this.x + 1, this.y + 1]
         ];
     }
+    yntrelVandak(ch) {
+        this.stanalNorKordinatner();
+        return super.yntrelVandak(ch);
+    }
     sharjvel() {
         this.stanalNorKordinatner();
         var datarkVandakner = this.yntrelVandak(0);
+        var datarkVandakner = this.yntrelVandak(1);
         var norVandak = random(datarkVandakner);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -34,24 +33,23 @@ class Lion extends Base {
         }
     }
     bazmanal() {
-        if (this.energy == 8) {
+        if (this.energy == 10) {
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-                var norLion = new Lion(norVandak[0], norVandak[1]);
-                lion.push(norLion);
+                var norGigant = new Gigant(norVandak[0], norVandak[1]);
+                gigant.push(norGigant)
                 matrix[norVandak[1]][norVandak[0]] = 4;
-                this.energy--;
                 this.multiply = 0;
             }
         }
     }
     utel() {
         this.stanalNorKordinatner();
-        var datarkVandakner = this.yntrelVandak(3);
+        var datarkVandakner = this.yntrelVandak(4);
         var norVandak = random(datarkVandakner);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
-            matrix[norVandak[1]][norVandak[0]] = 4;
+            matrix[norVandak[1]][norVandak[0]] = 5;
             this.x = norVandak[0];
             this.y = norVandak[1];
             this.energy++;

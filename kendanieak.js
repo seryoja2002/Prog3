@@ -1,8 +1,9 @@
-class Base {
-    constructor(x, y) {
+class Kendanieak {
+    constructor(x, y, index) {
         this.x = x;
         this.y = y;
-        this.multiply = 0;
+        this.energy = 8;
+        this.index = index;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -14,6 +15,7 @@ class Base {
             [this.x + 1, this.y + 1]
         ];
 
+        this.multiply = 0;
     }
     yntrelVandak(ch) {
         var found = [];
@@ -29,3 +31,4 @@ class Base {
         return found;
     }
 }
+
