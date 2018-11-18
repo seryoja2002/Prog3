@@ -1,7 +1,7 @@
 class Lion extends Kendanieak{
     constructor(x, y, index) {
         super(x, y, index);
-        this.tariq = 0;
+        this.energy = 10;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -32,7 +32,7 @@ class Lion extends Kendanieak{
         }
     }
     bazmanal() {
-        if (this.energy == 8) {
+        if (this.energy == 10) {
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
                 var norLion = new Lion(norVandak[0], norVandak[1]);
@@ -59,7 +59,7 @@ class Lion extends Kendanieak{
         }
     }
     mahanal() {
-        if (this.energy < 0) {
+        if (this.energy <= 0) {
             matrix[this.y][this.x] = 0;
             for (var c in lion) {
                 if (lion[c].x == this.x && lion[c].y == this.y) {

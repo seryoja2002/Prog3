@@ -1,7 +1,6 @@
 class Gigant extends Kendanieak {
         constructor(x, y, index) {
         super(x, y, index);
-        this.tariq = 0;
     }
     stanalNorKordinatner() {
         this.directions = [

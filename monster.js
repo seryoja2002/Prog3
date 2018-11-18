@@ -1,18 +1,18 @@
 class Monster extends Kendanieak{
     constructor(x, y, index) {
         super(x, y, index);
-        this.tariq = 0;
+        this.energy = 15;
     }
     stanalNorKordinatner() {
         this.directions = [
-            [this.x - 1, this.y - 1],
+            [this.x - 2, this.y - 2],
             [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
+            [this.x + 2, this.y - 2],
             [this.x - 1, this.y],
             [this.x + 1, this.y],
             [this.x - 1, this.y + 1],
             [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
+            [this.x + 2, this.y + 2]
         ];
     }
     yntrelVandak(ch) {
@@ -32,7 +32,7 @@ class Monster extends Kendanieak{
         }
     }
     bazmanal() {
-        if (this.energy == 1) {
+        if (this.energy == 15) {
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
                 var norMonster = new Monster(norVandak[0], norVandak[1]);
@@ -46,6 +46,7 @@ class Monster extends Kendanieak{
     utel() {
         this.stanalNorKordinatner();
         var datarkVandakner = this.yntrelVandak(2);
+        var datarkVandakner = this.yntrelVandak(1);
         var norVandak = random(datarkVandakner);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -59,7 +60,7 @@ class Monster extends Kendanieak{
         }
     }
     mahanal() {
-        if (this.energy < 0) {
+        if (this.energy <= 0) {
             matrix[this.y][this.x] = 0;
             for (var c in monster) {
                 if (monster[c].x == this.x && monster[c].y == this.y) {
