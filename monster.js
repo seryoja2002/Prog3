@@ -1,4 +1,4 @@
-class Monster extends Kendanieak{
+class Monster extends Kendanieak {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 15;
@@ -31,7 +31,7 @@ class Monster extends Kendanieak{
             this.energy--;
         }
     }
-    bazmanal() {
+    /*bazmanal() {
         if (this.energy == 15) {
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
@@ -42,7 +42,7 @@ class Monster extends Kendanieak{
                 this.multiply = 0;
             }
         }
-    }
+    }*/
     utel() {
         this.stanalNorKordinatner();
         var datarkVandakner = this.yntrelVandak(2);
@@ -77,7 +77,7 @@ class Monster extends Kendanieak{
 
 
 
-class MonsterEg extends Kendanieak{
+class MonsterEg extends Kendanieak {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 15;
@@ -113,10 +113,18 @@ class MonsterEg extends Kendanieak{
     bazmanal() {
         if (this.energy == 15) {
             var norVandak = random(this.yntrelVandak(0));
+            var norVandak = random(this.yntrelVandak(3));
             if (norVandak) {
                 var norMonster = new MonsterEg(norVandak[0], norVandak[1]);
                 monster.push(norMonster);
                 matrix[norVandak[1]][norVandak[0]] = 3.1;
+                if (Math.random() < 0.5) {
+
+                    matrix[norVandak[1]][norVandak[0]] = 3;
+                }
+                else {
+                    matrix[norVandak[1]][norVandak[0]] = 3.1;
+                }
                 this.energy--;
                 this.multiply = 0;
             }

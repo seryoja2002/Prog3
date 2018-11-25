@@ -1,5 +1,8 @@
+var socket = io.connect();
+
 var days = 1;
 var weather;
+var time;
 var m = 40;
 var n = 50;
 //var matrix = [];
@@ -76,8 +79,25 @@ function setup() {
         }
     }
 }
+var statistics;
 function draw() {
+
+    if (frameCount % 500 == 0) {
+        
+        statistics = {
+            "Frame count": frameCount,
+            "Խոտերի քանակ՝ ": grassArr.length,
+            "Խոտակերների քանակ՝ ": xotaker.length,
+            "Մոնստերների քանակ՝ ": gishatich.length,
+            "Առյուծների քանակ՝ ": lion.length,
+            "Գիգանտների քանակ՝ ": gigant.length,
+            "Ամենակերների քանակ ՝ ": allEater.length
+        }
+        socket.emit("send statistics", statistics);
+    }
+
     days++;
+    time++;
     if (days < 10) {
         weather = 1;
         document.getElementById("weather").innerHTML = "Ձմեռ է";
@@ -149,6 +169,11 @@ function draw() {
             }*/
         }
     }
+    if (time == 10) {
+        for (var i in xotaker) {
+            xotaker[i]
+        }
+    }
 
     for (var i in grassArr) {
         grassArr[i].bazmanal();
@@ -185,7 +210,6 @@ function draw() {
                 xotaker.splice(c, 1);
             }
         }
-        monster[i].bazmanal();
         monster[i].mahanal();
     }
 
