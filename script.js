@@ -15,16 +15,16 @@ for (var a = 0; a < n; a++) {
 
 var matrix = [
     [3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
+    [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
-    [0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
+    [0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2.1, 2, 2],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2.1, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
-    [0, 0, 0, 0, 0, 0, 0, 3.1, 3.1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
+    [0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
+    [0, 0, 0, 4, 4, 0, 0, 3.1, 3.1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
@@ -32,13 +32,13 @@ var matrix = [
 ];
 
 
-
+var side  = 20;
 var grassArr = [];
-var side = 20;
 var xotaker = [];
 var monster = [];
 var lion = [];
-var gigant = []
+var gigant = [];
+var allEater =[];
 var xotakerEg = [];
 var monsterEg = [];
 
@@ -70,6 +70,9 @@ function setup() {
             else if (matrix[y][x] == 5) {
                 gigant.push(new Gigant(x, y, 5));
             }
+            /*else if (matrix[y][x] == 6) {
+                allEater.push(new AllEater(x, y, 6));
+            }*/
         }
     }
 }
@@ -121,7 +124,7 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2.1) {
-                fill("#E4FF00");
+                fill("#ffffb3");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3) {
@@ -140,6 +143,10 @@ function draw() {
                 fill("red")
                 rect(x * side, y * side, side, side);
             }
+            /*else if (matrix[y][x] == 6) {
+                fill("orange")
+                rect(x * side, y * side, side, side);
+            }*/
         }
     }
 
@@ -155,7 +162,6 @@ function draw() {
                 grassArr.splice(c, 1);
             }
         }
-        xotaker[i].bazmanal();
         xotaker[i].mahanal();
     }
 
@@ -175,7 +181,7 @@ function draw() {
         monster[i].sharjvel();
         monster[i].utel();
         for (var c in xotaker) {
-            if (xotaker[c].x == monster[i].x && xotaker[c].y == monster[i].y/*&& xotakerEg[c].x == monster[i].x && xotaker[c].y == monster[i].y*/) {
+            if (xotaker[c].x == monster[i].x && xotaker[c].y == monster[i].y) {
                 xotaker.splice(c, 1);
             }
         }
@@ -187,7 +193,7 @@ function draw() {
         monsterEg[i].sharjvel();
         monsterEg[i].utel();
         for (var c in xotakerEg) {
-            if (xotaker[c].x == monsterEg[i].x && xotaker[c].y == monsterEg[i].y/* && xotakerEg[c].x == monsterEg[i].x && xotakerEg[c].y == monsterEg[i].y*/) {
+            if (xotaker[c].x == monsterEg[i].x && xotaker[c].y == monsterEg[i].y) {
                 xotaker.splice(c, 1);
             }
         }
@@ -200,7 +206,7 @@ function draw() {
         lion[i].bazmanal();
         lion[i].utel();
         for (var c in monster) {
-            if (monster[c].x == lion[i].x && monster[c].y == lion[i].y/* && monsterEg[c].x == lion[i].x && monsterEg[c].y == lion[i].y*/) {
+            if (monster[c].x == lion[i].x && monster[c].y == lion[i].y) {
                 monster.splice(c, 1);
             }
         }
@@ -216,4 +222,8 @@ function draw() {
         }
         gigant[i].bazmanal();
     }
+    /*for (var i in allEater) {
+        allEater[i].sharjvel();
+        allEater[i].utel();
+    }*/
 }

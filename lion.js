@@ -33,7 +33,7 @@ class Lion extends Kendanieak{
     }
     bazmanal() {
         if (this.energy == 10) {
-            var norVandak = random(this.yntrelVandak(0));
+            var norVandak = random(this.yntrelVandak(4));
             if (norVandak) {
                 var norLion = new Lion(norVandak[0], norVandak[1]);
                 lion.push(norLion);

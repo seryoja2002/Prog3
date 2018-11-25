@@ -38,7 +38,6 @@ class Monster extends Kendanieak{
                 var norMonster = new Monster(norVandak[0], norVandak[1]);
                 monster.push(norMonster);
                 matrix[norVandak[1]][norVandak[0]] = 3;
-                matrix[norVandak[1]][norVandak[0]] = 3.1;
                 this.energy--;
                 this.multiply = 0;
             }
@@ -48,6 +47,7 @@ class Monster extends Kendanieak{
         this.stanalNorKordinatner();
         var datarkVandakner = this.yntrelVandak(2);
         var datarkVandakner = this.yntrelVandak(1);
+        var datarkVandakner = this.yntrelVandak(2.1);
         var norVandak = random(datarkVandakner);
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -114,10 +114,9 @@ class MonsterEg extends Kendanieak{
         if (this.energy == 15) {
             var norVandak = random(this.yntrelVandak(0));
             if (norVandak) {
-                var norMonster = new Monster(norVandak[0], norVandak[1]);
+                var norMonster = new MonsterEg(norVandak[0], norVandak[1]);
                 monster.push(norMonster);
                 matrix[norVandak[1]][norVandak[0]] = 3.1;
-                matrix[norVandak[1]][norVandak[0]] = 3;
                 this.energy--;
                 this.multiply = 0;
             }
