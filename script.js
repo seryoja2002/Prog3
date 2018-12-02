@@ -1,12 +1,15 @@
+// Exanak +
+// Ser +
+// 6 kerpar
+// Statistic +
+// Event + (dictator)
+
 var socket = io.connect();
 
-var days = 1;
-var weather;
-var time;
 var m = 40;
 var n = 50;
-//var matrix = [];
-/*for (var i = 0; i < m; i++) {
+var matrix = [];
+for (var i = 0; i < m; i++) {
     matrix.push([]);
 }
 
@@ -14,15 +17,15 @@ for (var a = 0; a < n; a++) {
     for (var x = 0; x < m; x++) {
         matrix[x].push(Math.round(Math.random() * 5));
     }
-}*/
+}
 
-var matrix = [
+/*var matrix = [
     [3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
-    [0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2.1, 2, 2],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2.1, 2, 2],
+    [0, 0, 0, 5, 5, 5, 0, 0, 0, 6, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2.1, 2, 2],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2.1, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
@@ -32,7 +35,7 @@ var matrix = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
     [2, 2, 0, 0, 0, 0, 2.1, 2.1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2]
-];
+];*/
 
 
 var side  = 20;
@@ -41,7 +44,7 @@ var xotaker = [];
 var monster = [];
 var lion = [];
 var gigant = [];
-var allEater =[];
+var evil =[];
 var xotakerEg = [];
 var monsterEg = [];
 
@@ -73,12 +76,16 @@ function setup() {
             else if (matrix[y][x] == 5) {
                 gigant.push(new Gigant(x, y, 5));
             }
-            /*else if (matrix[y][x] == 6) {
-                allEater.push(new AllEater(x, y, 6));
-            }*/
+            else if (matrix[y][x] == 6) {
+                var dictator = new Evil(x, y);
+                evil.push(dictator);
+            }
         }
     }
 }
+var days = 1;
+var weather;
+var fire = 0;
 var statistics;
 function draw() {
 
@@ -88,16 +95,17 @@ function draw() {
             "Frame count": frameCount,
             "Խոտերի քանակ՝ ": grassArr.length,
             "Խոտակերների քանակ՝ ": xotaker.length,
-            "Մոնստերների քանակ՝ ": gishatich.length,
+            "Էգ Խոտակերների քանակ՝ ": xotakerEg.length,
+            "Մոնստերների քանակ՝": monster.length,
+            "Էգ Մոնստերների քանակ՝": monsterEg.length,
             "Առյուծների քանակ՝ ": lion.length,
             "Գիգանտների քանակ՝ ": gigant.length,
-            "Ամենակերների քանակ ՝ ": allEater.length
+            "Ամենակերների քանակ ՝ ": evil.length
         }
         socket.emit("send statistics", statistics);
     }
-
+    fire++;
     days++;
-    time++;
     if (days < 10) {
         weather = 1;
         document.getElementById("weather").innerHTML = "Ձմեռ է";
@@ -116,6 +124,11 @@ function draw() {
     }
     else if (days > 40) {
         days = 0;
+    }
+
+    if (fire >= 9) {
+        matrix[Math.round(Math.random()*21)][Math.round(Math.random()*20)] = 8;
+        fire = 0;
     }
 
     for (var y = 0; y < matrix.length; y++) {
@@ -163,15 +176,30 @@ function draw() {
                 fill("red")
                 rect(x * side, y * side, side, side);
             }
-            /*else if (matrix[y][x] == 6) {
+            else if (matrix[y][x] == 6) {
                 fill("orange")
                 rect(x * side, y * side, side, side);
-            }*/
-        }
-    }
-    if (time == 10) {
-        for (var i in xotaker) {
-            xotaker[i]
+            }
+            else if (matrix[y][x] == 8) {
+                matrix[y+1][x] = 6;
+                var dictator = new Evil(x, y+1);
+                evil.push(dictator);
+
+                matrix[y-1][x] = 6;
+                var dictator = new Evil(x, y-1);
+                evil.push(dictator);
+
+                matrix[y][x+1] = 6;
+                var dictator = new Evil(x+1, y);
+                evil.push(dictator);
+
+                matrix[y][x-1] = 6;
+                var dictator = new Evil(x-1, y);
+                evil.push(dictator);
+
+                fill("#5e0000");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
 
@@ -246,8 +274,8 @@ function draw() {
         }
         gigant[i].bazmanal();
     }
-    /*for (var i in allEater) {
-        allEater[i].sharjvel();
-        allEater[i].utel();
-    }*/
+    for (var i in evil) {
+        evil[i].sharjvel();
+        evil[i].utel();
+     }
 }

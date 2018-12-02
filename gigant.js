@@ -32,7 +32,7 @@ class Gigant extends Kendanieak {
     }
     bazmanal() {
         if (this.energy == 10) {
-            var norVandak = random(this.yntrelVandak(0));
+            var norVandak = random(this.yntrelVandak(5));
             if (norVandak) {
                 var norGigant = new Gigant(norVandak[0], norVandak[1]);
                 gigant.push(norGigant)

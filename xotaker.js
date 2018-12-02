@@ -107,17 +107,16 @@ class XotakerEg extends Kendanieak {
     bazmanal() {
         if (this.energy == 8) {
             //this.energy--;
-            var norVandak = random(this.yntrelVandak(0));
             var norVandak = random(this.yntrelVandak(2));
             if (norVandak) {
-                var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
-                xotaker.push(norXotaker);
+                var norXotakerEg = new XotakerEg(norVandak[0], norVandak[1]);
+                xotakerEg.push(norXotakerEg);
                 if (Math.random() < 0.5) {
 
-                    matrix[norVandak[1]][norVandak[0]] = 2;
+                    matrix[norVandak[1]][norVandak[0]] = 2.1;
                 }
                 else {
-                    matrix[norVandak[1]][norVandak[0]] = 2.1;
+                    matrix[norVandak[1]][norVandak[0]] = 2;
                 }
                 this.multiply = 0;
             }
@@ -141,9 +140,9 @@ class XotakerEg extends Kendanieak {
     mahanal() {
         if (this.energy < 0) {
             matrix[this.y][this.x] = 0;
-            for (var c in xotaker) {
-                if (xotaker[c].x == this.x && xotaker[c].y == this.y) {
-                    xotaker.splice(c, 1);
+            for (var c in xotakerEg) {
+                if (xotakerEg[c].x == this.x && xotakerEg[c].y == this.y) {
+                    xotakerEg.splice(c, 1);
                 }
             }
         }
